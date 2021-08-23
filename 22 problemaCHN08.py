@@ -7,6 +7,8 @@ Input
 The first line of input contains a single integer T denoting number of test cases.
 The only line of each test case contains three integers: A, B and N, denoting f(1), f(2) and the query.
 
+round((c[0]*w1**N + c[1]*w2**N).real) % modulo
+
 Example
 Input:
 2
