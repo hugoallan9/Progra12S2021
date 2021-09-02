@@ -8,7 +8,10 @@ def get_stats(lista_clase):
     return nueva_lista
 
 def avg(calificaciones):
-    return sum(calificaciones) / len(calificaciones)
+    try:
+        return sum(calificaciones) / len(calificaciones)
+    except ZeroDivisionError:
+        print('Advertencia: No hay calificaciones')
 
 test_grades = [[['Peter', 'Parker'], [10.0, 5.0, 85.0]],
                [['Bruce', 'Wayne'], [10.0, 8.0, 74.0]],
