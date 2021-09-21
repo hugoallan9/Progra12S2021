@@ -16,7 +16,7 @@ class Ficha_empleado:
 
     def sueldo(self):
         return (1000 + self.__antiguedad*25)
-
+'''
 #Instanciar la clase Ficha_empleado
 jorge = Ficha_empleado('Jorge', 'Pérez')
 jorge.set_antiguedad(10)
@@ -27,3 +27,4 @@ print('El nombre completo de jorge es', jorge.nombre, jorge.apellidos, 'su antig
 print('El salario de ', jorge.nombre, 'es', jorge.sueldo())
 print('El nombre completo de pedro es', pedro.nombre, pedro.apellidos)
 print('El salario de ', pedro.nombre, 'es', pedro.sueldo())
+'''
