@@ -1,6 +1,5 @@
-
 class Ficha_empleado:
-    def __init__(self, nombre = None,apellidos = None):
+    def __init__(self, nombre=None, apellidos=None):
         self.nombre = nombre
         self.apellidos = apellidos
         self.edad = None
@@ -8,19 +7,20 @@ class Ficha_empleado:
         self.direccion = None
         self.__antiguedad = None
 
-    def set_antiguedad(self,antiguedad):
+    def set_antiguedad(self, antiguedad):
         self.__antiguedad = antiguedad
 
     def get_antiguedad(self):
         return self.__antiguedad
 
     def sueldo(self):
-        return (1000 + self.__antiguedad*25)
+        return (1000 + self.__antiguedad * 25)
+
 
 class Ficha_fabricacion(Ficha_empleado):
-    #Sobrescribiendo el constructor
+    # Sobrescribiendo el constructor
     def __init__(self, articulos_mes):
-        #Llamando al constructor de la clase padre
+        # Llamando al constructor de la clase padre
         super().__init__()
         self.__articulos_mes = articulos_mes
 
@@ -32,6 +32,7 @@ class Ficha_fabricacion(Ficha_empleado):
 
     def incrementar_articulos(self, suma):
         self.__articulos_mes += suma
+
 
 class Ficha_tecnico(Ficha_empleado):
     def __init__(self):
@@ -49,6 +50,14 @@ class Ficha_tecnico(Ficha_empleado):
 
     def disminuir_estrellas(self):
         self.__estrellas -= 1
+
+    def disminuir_estrellas(self, estrellas):
+        self.__estrellas -= estrellas
+
+    def sueldo(self):
+        return (1250 + self.get_antiguedad()* 25)
+
+
 
 class Ficha_comercial(Ficha_empleado):
     def __init__(self):
@@ -68,12 +77,31 @@ class Ficha_comercial(Ficha_empleado):
     def get_numero_clientes(self):
         return self.__numero_clientes
 
-def main():
-    c = Ficha_fabricacion(5)
-    c.nombre = 'Mónica'
-    c.apellidos = 'Pérez Zeledón'
-    c.set_antiguedad(10)
-    print(c.nombre, c.apellidos)
-    print('Su antiguedad es', c.get_antiguedad())
 
-main()
+class Ficha_tecnico_y_comercial(Ficha_tecnico, Ficha_comercial):
+    def __init__(self):
+        super().__init__()
+        self.horas_tecnico = None
+        self.horas_comercial = None
+
+    def sueldo(self):
+        return ((1000 + self.get_antiguedad()*25)*self.horas_comercial +
+                (1250 + self.get_antiguedad()*25)*self.horas_tecnico)
+
+
+a = Ficha_tecnico_y_comercial()
+a.nombre = 'Joaquín'
+a.apellidos = 'Rosales Miranda'
+a.edad = 50
+a.set_antiguedad(15)
+a.horas_tecnico = 4
+a.horas_comercial = 4
+print('El sueldo es', a.sueldo())
+print('Las horas de técnicos son', a.horas_tecnico)
+print('Las horas de comercial son', a.horas_comercial)
+b = Ficha_tecnico()
+b.set_antiguedad(10)
+print('El salario de este técnicos es', b.sueldo())
+b.set_estrellas(50)
+b.disminuir_estrellas()
+b.disminuir_estrellas(14)

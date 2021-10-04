@@ -22,11 +22,12 @@ def resolver_recurrencia(A,B):
     x = scipy.sparse.linalg.spsolve(matriz,b)
     return x
 
-'''
+
 T = int(input())
 modulo = 10**9+ 7
 for x in range(T):
     A,B,N = map(int, input().split())
     c = resolver_recurrencia2(A,B)
     print( int(round((c[0]*w1**N + c[1]*w2**N).real) % modulo) )
-'''
+
+999999507

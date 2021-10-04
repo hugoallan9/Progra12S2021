@@ -15,10 +15,9 @@ def f(n, A,B):
         respuesta = A - B
     return respuesta
 
-'''
+
 T = int(input())
 modulo = 10**9+ 7
 for x in range(T):
     A,B,N = map(int, input().split())
     print( f(N,A,B) % modulo )
-'''
