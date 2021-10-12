@@ -1,4 +1,7 @@
+import numpy as np
+import time
 
+numeros = np.random.randn(1,int(1e1)).tolist()[0]
 
 def quicksort(start, end, array):
     if start < end:
@@ -23,9 +26,13 @@ def partition(start,end,array):
     array[end], array[pivot_index] = array[pivot_index], array[end]
     return end
 
-A = [1,9,27,30,4,6,7,27,13,11,10,20]
-quicksort(0,len(A)-1,A)
-print(A)
+
+print(numeros)
+inicio = time.time()
+quicksort(0,len(numeros)-1,numeros)
+fin = time.time()
+print(' \n Tiempo de ejecución:', fin-inicio)
+
 
 
 
